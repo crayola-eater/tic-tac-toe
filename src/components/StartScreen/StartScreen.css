@@ -1,0 +1,19 @@
+.start-screen {
+  color: orangered;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 2px orangered;
+}
+
+.start-screen button.btn {
+  box-shadow: 0 0 2px orangered;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.start-screen button.btn:hover {
+  color: black;
+  background-color: orangered;
+  box-shadow: 0 0 20px orangered;
+}

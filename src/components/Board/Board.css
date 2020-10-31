@@ -1,0 +1,24 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2rem;
+  box-shadow: 0 0 15px orangered;
+  border-radius: 10px;
+  animation: glowing-border 1s infinite alternate-reverse;
+}
+
+.board .square:first-child {
+  border-top-left-radius: 10px;
+}
+
+.board .square:nth-child(3) {
+  border-top-right-radius: 10px;
+}
+
+.board .square:nth-child(7) {
+  border-bottom-left-radius: 10px;
+}
+
+.board .square:last-child {
+  border-bottom-right-radius: 10px;
+}

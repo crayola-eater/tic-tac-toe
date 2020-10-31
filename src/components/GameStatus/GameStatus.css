@@ -1,0 +1,7 @@
+.game-status {
+  font-size: 2rem;
+  color: orangered;
+  animation: glowing-text 1s alternate-reverse infinite;
+  padding: 1rem;
+  margin: 1rem;
+}

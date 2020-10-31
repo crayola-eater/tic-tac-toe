@@ -1,0 +1,8 @@
+.game {
+  margin: 1rem;
+  min-width: 60vw;
+}
+
+.game .btn {
+  margin: 2rem;
+}

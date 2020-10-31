@@ -1,0 +1,36 @@
+.player-input-container {
+  margin: 1rem;
+  border: none;
+}
+
+.player-input__legend {
+  margin: 1rem 0;
+  letter-spacing: 5px;
+  font-size: 1.2rem;
+}
+
+.player-input__name {
+  color: orangered;
+  padding: 1rem 0.5rem;
+  border-radius: 3px;
+  border: none;
+  margin: 1rem;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.player-input__name::placeholder {
+}
+
+.player-input__character {
+  margin: 1rem;
+  color: orangered;
+  padding: 1rem 0.5rem;
+  border-radius: 3px;
+  border: none;
+  width: 100%;
+}
+
+.player-input__character-option {
+  padding: 1rem;
+}

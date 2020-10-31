@@ -1,0 +1,29 @@
+.square {
+  background-color: inherit;
+  color: orangered;
+  box-shadow: 0 0 3px orangered;
+  font-size: 3rem;
+  height: 6rem;
+  width: 6rem;
+  text-align: center;
+  border-color: transparent;
+  outline: white;
+}
+
+.winning-square {
+  background-color: orangered;
+}
+
+.winning-square span {
+  position: absolute;
+  animation: winning-dance 5s infinite linear;
+}
+
+@keyframes winning-dance {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

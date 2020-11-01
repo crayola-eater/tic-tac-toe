@@ -1,3 +1,13 @@
+# Small tic-tac-toe game
+
+An exercise in:
+
+- Learning the basics of React whilst creating a small, Halloween-themed tic-tac-toe game.
+- Using function components
+- Becoming familiar with useState hook
+- Breaking the problem/task down
+- Separating the project into smaller, manageable components.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

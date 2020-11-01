@@ -1,12 +1,37 @@
 .go-to-move-container {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-.go-to-move-container button {
+.go-to-move__label {
+  color: orangered;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.go-to-move__move {
   padding: 0.5rem;
-  margin: 0.25rem;
+  background-color: transparent;
+  border: none;
+  color: orangered;
+  cursor: pointer;
+  font: inherit;
+}
+
+.go-to-move__move:hover {
+  background-color: orangered;
+  color: black;
+}
+
+.go-to-move__to-keep {
+  border-bottom: 1px solid orangered;
+}
+
+.go-to-move__to-drop {
+  opacity: 0.7;
 }
 
 .go-to-move__current {
-  background-color: orangered;
 }

@@ -17,6 +17,13 @@
   justify-content: center;
 }
 
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .font-spooky {
   font-family: "Lacquer", cursive;
 }
@@ -64,4 +71,8 @@
   color: black;
   background-color: orangered;
   box-shadow: 0 0 20px orangered;
+}
+
+h1 {
+  font-weight: normal;
 }

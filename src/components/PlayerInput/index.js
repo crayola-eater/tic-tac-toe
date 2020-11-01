@@ -27,11 +27,12 @@ export function PlayerInput({
         placeholder={`Enter player ${playerNumber}'s name here...`}
         onChange={(e) => handleChange({ name: e.target.value })}
       />
-      {player.name && (
+      {
         <select
           className="player-input__character font-spooky"
           defaultValue={player.character}
           onChange={(e) => handleChange({ character: e.target.value })}
+          style={{ visibility: player.name ? "visible" : "hidden" }}
         >
           <option className="player-input__character-option" disabled value="">
             {`Select a character for player ${playerNumber}`}
@@ -48,7 +49,7 @@ export function PlayerInput({
             );
           })}
         </select>
-      )}
+      }
     </fieldset>
   );
 }

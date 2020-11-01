@@ -25,31 +25,32 @@ export function StartScreen({ onStartGame }) {
 
   return (
     <div className="start-screen flex-col-center glowing-border font-spooky">
-      <p
-        className="glowing-text"
-        style={{ marginBottom: "1rem", fontSize: "1.2rem" }}
-      >
-        Character selection screen
-      </p>
-      <PlayerInput
-        playerNumber={1}
-        availableCharacters={allCharacters.filter(
-          ({ character }) => player2.character !== character
-        )}
-        onPlayerUpdate={(newPlayer) => setPlayer1(newPlayer)}
-      />
-      <PlayerInput
-        playerNumber={2}
-        availableCharacters={allCharacters.filter(
-          ({ character }) => player1.character !== character
-        )}
-        onPlayerUpdate={(newPlayer) => setPlayer2(newPlayer)}
-      />
-      {userInputIsValid && (
-        <button className="btn font-spooky glowing-font" onClick={handleClick}>
+      <h1 className="glowing-text">Select a character!</h1>
+      <main className="flex-row-center">
+        <PlayerInput
+          playerNumber={1}
+          availableCharacters={allCharacters.filter(
+            ({ character }) => player2.character !== character
+          )}
+          onPlayerUpdate={(newPlayer) => setPlayer1(newPlayer)}
+        />
+        <PlayerInput
+          playerNumber={2}
+          availableCharacters={allCharacters.filter(
+            ({ character }) => player1.character !== character
+          )}
+          onPlayerUpdate={(newPlayer) => setPlayer2(newPlayer)}
+        />
+      </main>
+      {
+        <button
+          className="btn font-spooky glowing-font"
+          onClick={handleClick}
+          style={{ visibility: userInputIsValid ? "visible" : "hidden" }}
+        >
           Start game
         </button>
-      )}
+      }
     </div>
   );
 }

@@ -21,7 +21,7 @@ Behaviour:
 */
 
 export function Game() {
-  const [players, setPlayers] = useState(initialPlayers);
+  const [players, setPlayers] = useState([]);
   const [history, setHistory] = useState(initialHistory);
   const [xIsNext, setXIsNext] = useState(initialXIsNext);
   const [stepNumber, setStepNumber] = useState(0);

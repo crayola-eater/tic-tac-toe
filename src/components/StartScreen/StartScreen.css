@@ -8,6 +8,7 @@
 
 .start-screen main {
   margin: 1rem;
+  flex-wrap: wrap;
 }
 
 .start-screen button.btn {

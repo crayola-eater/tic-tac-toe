@@ -24,7 +24,7 @@ export function PlayerInput({
       <input
         className="player-input__name font-spooky"
         type="text"
-        placeholder={`Enter player ${playerNumber}'s name here...`}
+        placeholder="Enter name..."
         onChange={(e) => handleChange({ name: e.target.value })}
       />
       {
@@ -35,7 +35,7 @@ export function PlayerInput({
           style={{ visibility: player.name ? "visible" : "hidden" }}
         >
           <option className="player-input__character-option" disabled value="">
-            {`Select a character for player ${playerNumber}`}
+            Select a character
           </option>
           {availableCharacters.map(({ character, characterId }) => {
             return (

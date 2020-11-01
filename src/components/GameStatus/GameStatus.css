@@ -4,4 +4,5 @@
   animation: glowing-text 1s alternate-reverse infinite;
   padding: 1rem;
   margin: 1rem;
+  text-align: center;
 }

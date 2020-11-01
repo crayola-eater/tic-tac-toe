@@ -11,9 +11,5 @@ Props:
 */
 
 export function GameStatus({ status }) {
-  return (
-    <div className="game-status">
-      <p className="font-spooky">{status}</p>
-    </div>
-  );
+  return <div className="game-status font-spooky">{status}</div>;
 }

@@ -7,7 +7,7 @@ Props:
   handleClick: for when someone clicks a "square"
   isWinning: boolean
 */
-function Square({ value, onSquareClick, isWinning }) {
+export function Square({ value, onSquareClick, isWinning }) {
   return (
     <button
       className={`square ${isWinning ? "winning-square" : ""}`.trim()}
@@ -18,5 +18,3 @@ function Square({ value, onSquareClick, isWinning }) {
     </button>
   );
 }
-
-export default Square;

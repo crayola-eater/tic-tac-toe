@@ -1,5 +1,5 @@
 import React from "react";
-import Square from "../Square";
+import { Square } from "../Square";
 import "./Board.css";
 
 /*
@@ -9,7 +9,7 @@ Props:
   handleClick: function
 */
 
-function Board({ squares, onSquareClick, winningCombinations }) {
+export function Board({ squares, onSquareClick, winningCombinations }) {
   return (
     <div className="board">
       {squares.map((value, i) => {
@@ -28,5 +28,3 @@ function Board({ squares, onSquareClick, winningCombinations }) {
     </div>
   );
 }
-
-export default Board;

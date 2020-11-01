@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 import "./Game.css";
 
-import GameStatus from "../GameStatus";
-import Board from "../Board";
+import { GameStatus } from "../GameStatus";
+import { Board } from "../Board";
 import { StartScreen } from "../StartScreen";
-
-import { initialSquares, initialXIsNext } from "./initial";
+import { GoTo } from "../GoTo";
+import { initialPlayers, initialHistory, initialXIsNext } from "./initial";
 import { calculateWinner } from "./helper";
 
 /*
@@ -20,11 +20,11 @@ Behaviour:
   set square state (when square gets clicked)
 */
 
-function Game() {
-  const [players, setPlayers] = useState([]);
-  const [history, setHistory] = useState([{ squares: initialSquares }]);
-  const [squares, setSquares] = useState(initialSquares);
+export function Game() {
+  const [players, setPlayers] = useState(initialPlayers);
+  const [history, setHistory] = useState(initialHistory);
   const [xIsNext, setXIsNext] = useState(initialXIsNext);
+  const [stepNumber, setStepNumber] = useState(0);
 
   function handleStartGame(player1, player2) {
     setPlayers([
@@ -33,12 +33,55 @@ function Game() {
     ]);
   }
 
-  if (players.length === 0) {
+  if (0 === players.length) {
     return <StartScreen onStartGame={handleStartGame} />;
   }
 
+  function onSquareClick(indexClicked) {
+    if (gameIsOver) {
+      return;
+    }
+    const { squares } = history[stepNumber];
+    const truncatedHistory = history.slice(0, stepNumber + 1);
+
+    if (squares[indexClicked] || calculateWinner(squares).hasWon) {
+      return;
+    }
+
+    setHistory([
+      // Create deep, imperative copy of existing history
+      ...truncatedHistory.map((step) => {
+        return { squares: [...step.squares] };
+      }),
+
+      // New step in history
+      {
+        squares: [
+          ...squares.slice(0, indexClicked),
+          players[xIsNext ? 1 : 0].character,
+          ...squares.slice(indexClicked + 1),
+        ],
+      },
+    ]);
+    setStepNumber(truncatedHistory.length);
+    setXIsNext(!xIsNext);
+  }
+
+  function jumpTo(step) {
+    console.log("Set step number to", step);
+    setStepNumber(step);
+    setXIsNext(0 !== step % 2);
+  }
+
+  function restartGame() {
+    setHistory(initialHistory);
+    setStepNumber(0);
+    setXIsNext(initialXIsNext);
+  }
+
+  const { squares } = history[stepNumber];
   const currentPlayer = players[xIsNext ? 1 : 0];
-  const nextPlayer = players[!xIsNext ? 1 : 0];
+  const nextPlayer = players[xIsNext ? 0 : 1];
   const allSquaresClicked = squares.every((square) => square);
   const { hasWon, winningCombinations } = calculateWinner(squares);
   const gameIsOver = hasWon || allSquaresClicked;
@@ -52,25 +95,17 @@ function Game() {
     status = `Waiting for ${currentPlayer.name} ${currentPlayer.character}...`;
   }
 
-  function onSquareClick(indexClicked) {
-    if (gameIsOver) {
-      return;
-    }
-    setSquares([
-      ...squares.slice(0, indexClicked),
-      players[xIsNext ? 1 : 0].character,
-      ...squares.slice(indexClicked + 1),
-    ]);
-    setXIsNext(!xIsNext);
-  }
-
-  function restartGame() {
-    setSquares(initialSquares);
-    setXIsNext(initialXIsNext);
-  }
-
   return (
     <div className="game flex-col-center">
+      <GoTo
+        gameIsOver={
+          history[history.length - 1].squares.every((square) => square) ||
+          calculateWinner(history[history.length - 1].squares).hasWon
+        }
+        movesCount={history.length}
+        currentMove={stepNumber}
+        handleClick={jumpTo}
+      />
       <GameStatus status={status} />
       <Board
         squares={squares}
@@ -89,5 +124,3 @@ function Game() {
     </div>
   );
 }
-
-export default Game;

@@ -1,0 +1,12 @@
+.go-to-move-container {
+  display: flex;
+}
+
+.go-to-move-container button {
+  padding: 0.5rem;
+  margin: 0.25rem;
+}
+
+.go-to-move__current {
+  background-color: orangered;
+}

@@ -10,12 +10,10 @@ Props:
             "<player_character> wins!"
 */
 
-function GameStatus({ status }) {
+export function GameStatus({ status }) {
   return (
     <div className="game-status">
       <p className="font-spooky">{status}</p>
     </div>
   );
 }
-
-export default GameStatus;
